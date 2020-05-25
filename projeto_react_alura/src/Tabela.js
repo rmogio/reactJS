@@ -6,7 +6,7 @@ const TableHead = () => {
     <thead>
       <tr>
         <th>Autor</th>
-        <th>Titulo</th>
+        <th>Livro</th>
         <th>Preço</th>
         <th>Remover</th>
       </tr>
@@ -19,9 +19,12 @@ const TableBody = props => {
     return(
       <tr key={index} >
         <td>{linha.nome}</td>
-        <td>{linha.titulo}</td>
+        <td>{linha.livro}</td>
         <td>{linha.preco}</td>
-        <td><button onClick={() => props.removeAutor(index)} >x</button></td>
+        <td><button 
+              onClick={() => props.removeAutor(index)} 
+              className='waves-effect waves-light btn indigo lighten-2b'>x</button>
+        </td>
       </tr>
     )
   })
@@ -38,7 +41,7 @@ class Tabela extends Component{
       const { autores, removeAutor } = this.props
 
     return(
-      <table>
+      <table className='certered highlight'>
         <TableHead/>
         <TableBody autores = {autores} removeAutor = {removeAutor} />
       </table>
